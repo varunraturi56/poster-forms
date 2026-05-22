@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster Award Results — INFUZE × XCARCITY Summer School 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --infuze: #009b91;
+      --infuze-light: #e6f7f6;
+      --infuze-dark: #007a72;
+      --infuze-purple: #827daf;
+      --infuze-mint: #73dcaa;
+      --infuze-maroon: #5a2337;
+      --infuze-midnight: #141432;
+      --xcarcity: #2d2d8e;
+      --xcarcity-light: #ededf8;
+      --xcarcity-dark: #1a1a6e;
+      --xcarcity-red: #e3161a;
+      --xcarcity-green: #009a3d;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5a;
+      --text-muted: #8a8a9a;
+      --bg: #f4f5f7;
+      --card-bg: #fff;
+      --border: #dfe1e6;
+      --border-light: #ecedf0;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(20,20,50,0.06), 0 1px 2px rgba(20,20,50,0.04);
+      --shadow-md: 0 4px 12px rgba(20,20,50,0.08), 0 2px 4px rgba(20,20,50,0.04);
+      --shadow-lg: 0 8px 28px rgba(20,20,50,0.1), 0 4px 8px rgba(20,20,50,0.05);
+      --teal-bright: #00d4c8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* ---- Header Band ---- */
+    .header-band {
+      background: linear-gradient(160deg, var(--infuze-midnight) 0%, #1e1e4a 40%, var(--infuze-maroon) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px 20px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-band::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -30%;
+      width: 60%; height: 200%;
+      background: radial-gradient(ellipse, rgba(0,155,145,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-band .school-year {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--infuze-purple);
+      margin-bottom: 6px;
+    }
+    .header-band .school-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.3;
+      max-width: 380px;
+      margin: 0 auto 8px;
+    }
+    .header-band .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      color: var(--teal-bright);
+    }
+    .header-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+
+    /* ---- Container ---- */
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 24px 16px 32px;
+    }
+
+    /* ---- Footer ---- */
+    .page-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+    }
+    .footer-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+    .footer-band {
+      background: var(--infuze-midnight);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0 max(12px, env(safe-area-inset-bottom));
+    }
+    .footer-band img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      filter: saturate(1.3) brightness(1.6);
+    }
+    .footer-band .sep {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+
+    /* ---- Summary strip ---- */
+    .summary-strip {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .summary-card {
+      flex: 1;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 16px 12px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .summary-card .s-num {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .summary-card .s-num.infuze { color: var(--infuze); }
+    .summary-card .s-num.xcarcity { color: var(--xcarcity); }
+    .summary-card .s-num.total { color: var(--text); }
+    .summary-card .s-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* ---- Project results sections ---- */
+    .results-section {
+      margin-bottom: 24px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .results-section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .results-section-header .rs-logo {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+    }
+    .results-section-header .rs-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .results-section-header .rs-title.infuze { color: var(--infuze); }
+    .results-section-header .rs-title.xcarcity { color: var(--xcarcity); }
+    .results-section-body {
+      padding: 16px;
+    }
+
+    /* ---- Winner card ---- */
+    .winner-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .winner-card.infuze {
+      background: linear-gradient(135deg, var(--infuze-light) 0%, rgba(115,220,170,0.15) 100%);
+      border: 1.5px solid var(--infuze);
+    }
+    .winner-card.xcarcity {
+      background: linear-gradient(135deg, var(--xcarcity-light) 0%, rgba(45,45,142,0.08) 100%);
+      border: 1.5px solid var(--xcarcity);
+    }
+    .winner-card .w-trophy {
+      font-size: 32px;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .winner-card .w-info { flex: 1; min-width: 0; }
+    .winner-card .w-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+    .winner-card .w-label.infuze { color: var(--infuze); }
+    .winner-card .w-label.xcarcity { color: var(--xcarcity); }
+    .winner-card .w-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .winner-card .w-author {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .winner-card .w-votes {
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .winner-card .w-votes .v-count {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .winner-card .w-votes .v-count.infuze { color: var(--infuze); }
+    .winner-card .w-votes .v-count.xcarcity { color: var(--xcarcity); }
+    .winner-card .w-votes .v-unit {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ---- Bar rows ---- */
+    .bar-row {
+      margin-bottom: 12px;
+    }
+    .bar-row:last-child { margin-bottom: 0; }
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 13px;
+      margin-bottom: 5px;
+      gap: 8px;
+    }
+    .bar-label-name {
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+      min-width: 0;
+      line-height: 1.3;
+    }
+    .bar-label-count {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .bar-track {
+      background: var(--bg);
+      border-radius: 6px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      width: 0;
+      transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bar-fill.infuze {
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 100%);
+    }
+    .bar-fill.xcarcity {
+      background: linear-gradient(90deg, var(--xcarcity) 0%, #5858c8 100%);
+    }
+
+    /* ---- Impressions summary ---- */
+    .impressions-section {
+      margin-bottom: 24px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .impressions-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+    }
+    .impressions-body {
+      padding: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .impression-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--bg);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .impression-pill .ip-count {
+      background: var(--infuze);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 6px;
+    }
+
+    /* ---- Comments section ---- */
+    .comments-section {
+      margin-bottom: 24px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .comments-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .comments-header .ch-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+    }
+    .comments-header .ch-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .comments-body {
+      padding: 12px 16px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .comment-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .comment-item:last-child { border-bottom: none; }
+    .comment-item .ci-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .comment-item .ci-meta .ci-name {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .comment-item .ci-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .no-data {
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ---- Action buttons ---- */
+    .actions-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .btn-action {
+      flex: 1;
+      padding: 11px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .btn-action.primary {
+      background: var(--infuze);
+      color: #fff;
+      border: none;
+    }
+    .btn-action.primary:hover { background: var(--infuze-dark); }
+    .btn-action.secondary {
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border);
+    }
+    .btn-action.secondary:hover { border-color: var(--text-muted); }
+
+    /* ---- Loading state ---- */
+    .loading-state {
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .loading-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--infuze);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .loading-state p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ---- Fade-in animation ---- */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      animation: fadeSlideIn 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    /* ---- Auto-refresh badge ---- */
+    .refresh-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--infuze-light);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--infuze);
+      margin-bottom: 20px;
+    }
+    .refresh-badge .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--infuze);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* ---- Responsive ---- */
+    @media (min-width: 768px) {
+      .container { max-width: 640px; padding: 32px 24px 48px; }
+      .results-row {
+        display: flex;
+        gap: 16px;
+      }
+      .results-row .results-section { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-band">
+    <div class="school-year">Summer School 2026</div>
+    <div class="school-title">Understanding the pathways to car-free living in urban contexts</div>
+    <div class="page-title">Poster Award Results</div>
+  </div>
+  <div class="header-accent"></div>
+
+  <div class="container" id="app">
+    <!-- Loading state -->
+    <div id="loading-view">
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Loading results...</p>
+      </div>
+    </div>
+
+    <!-- Results content (hidden until loaded) -->
+    <div id="results-view" style="display:none;">
+
+      <!-- Summary cards -->
+      <div class="summary-strip animate-in" style="animation-delay: 0.1s;">
+        <div class="summary-card">
+          <div class="s-num total" id="total-votes">0</div>
+          <div class="s-label">Total Votes</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-num infuze" id="infuze-voters">0</div>
+          <div class="s-label">INFUZE</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-num xcarcity" id="xcarcity-voters">0</div>
+          <div class="s-label">XCARCITY</div>
+        </div>
+      </div>
+
+      <!-- Auto-refresh indicator -->
+      <div style="text-align:center;">
+        <span class="refresh-badge">
+          <span class="pulse-dot"></span>
+          Live — refreshes every 30s
+        </span>
+      </div>
+
+      <!-- Results bars -->
+      <div class="results-row">
+        <div class="results-section animate-in" style="animation-delay: 0.2s;">
+          <div class="results-section-header">
+            <img class="rs-logo" src="assets/infuze-logo.png" alt="INFUZE">
+            <span class="rs-title infuze">Results</span>
+          </div>
+          <div class="results-section-body">
+            <div id="infuze-winner"></div>
+            <div id="infuze-bars"></div>
+          </div>
+        </div>
+
+        <div class="results-section animate-in" style="animation-delay: 0.35s;">
+          <div class="results-section-header">
+            <img class="rs-logo" src="assets/xcarcity-logo.png" alt="XCARCITY">
+            <span class="rs-title xcarcity">Results</span>
+          </div>
+          <div class="results-section-body">
+            <div id="xcarcity-winner"></div>
+            <div id="xcarcity-bars"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impressions summary -->
+      <div class="impressions-section animate-in" style="animation-delay: 0.5s;" id="impressions-section">
+        <div class="impressions-header">Quick Impressions</div>
+        <div class="impressions-body" id="impressions-body"></div>
+      </div>
+
+      <!-- Comments -->
+      <div class="comments-section animate-in" style="animation-delay: 0.6s;" id="comments-section">
+        <div class="comments-header">
+          <span class="ch-title">Comments</span>
+          <span class="ch-count" id="comments-count"></span>
+        </div>
+        <div class="comments-body" id="comments-body"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions-row animate-in" style="animation-delay: 0.7s;">
+        <button class="btn-action primary" onclick="exportCSV('Votes')">Export Votes</button>
+        <button class="btn-action primary" onclick="exportCSV('Feedback')">Export Feedback</button>
+        <button class="btn-action secondary" onclick="loadResults()">Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="footer-accent"></div>
+    <div class="footer-band">
+      <img src="assets/infuze-logo.png" alt="INFUZE">
+      <span class="sep">&times;</span>
+      <img src="assets/xcarcity-logo.png" alt="XCARCITY">
+    </div>
+  </div>
+
+  <script>
+    const SCRIPT_URL = '';
+
+    let postersData = null;
+    let votesData = [];
+    let feedbackData = [];
+    let refreshTimer = null;
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    async function init() {
+      const res = await fetch('posters.json');
+      postersData = await res.json();
+      await loadResults();
+      refreshTimer = setInterval(loadResults, 30000);
+    }
+
+    async function loadResults() {
+      if (!SCRIPT_URL) {
+        showDemoData();
+        return;
+      }
+
+      try {
+        const [votesRes, feedbackRes] = await Promise.all([
+          fetch(`${SCRIPT_URL}?sheet=Votes`),
+          fetch(`${SCRIPT_URL}?sheet=Feedback`)
+        ]);
+        votesData = await votesRes.json();
+        feedbackData = await feedbackRes.json();
+        renderResults();
+      } catch (e) {
+        console.error('Failed to load results:', e);
+        if (votesData.length === 0) showDemoData();
+      }
+    }
+
+    function showDemoData() {
+      const allInfuze = postersData.infuze.map(p => `${p.presenter} — ${p.title}`);
+      const allXcarcity = postersData.xcarcity.map(p => `${p.presenter} — ${p.title}`);
+      const impressionOpts = ['Clear visuals', 'Novel methodology', 'Strong results', 'Well written', 'Interesting topic', 'Good layout'];
+      const names = ['Anonymous', 'Anonymous', 'Alex', 'Jordan', 'Sam', 'Anonymous'];
+
+      votesData = [];
+      for (let i = 0; i < 24; i++) {
+        const picks = [];
+        for (let j = 0; j < Math.floor(Math.random() * 3) + 1; j++) {
+          picks.push(impressionOpts[Math.floor(Math.random() * impressionOpts.length)]);
+        }
+        votesData.push({
+          timestamp: new Date(Date.now() - i * 180000).toISOString(),
+          infuzeVote: allInfuze[Math.floor(Math.random() * allInfuze.length)],
+          xcarcityVote: allXcarcity[Math.floor(Math.random() * allXcarcity.length)],
+          infuzeImpressions: picks.join(', '),
+          xcarcityImpressions: picks.slice(0, 2).join(', '),
+          infuzeComment: '',
+          xcarcityComment: '',
+          overallComment: i % 4 === 0 ? ['Great poster session!', 'Really enjoyed the variety of topics.', 'Some excellent visualisations on display.', 'Learned a lot from the posters.'][Math.floor(i / 4) % 4] : '',
+          voterName: names[i % names.length]
+        });
+      }
+      renderResults();
+    }
+
+    function renderResults() {
+      document.getElementById('loading-view').style.display = 'none';
+      document.getElementById('results-view').style.display = '';
+
+      document.getElementById('total-votes').textContent = votesData.length;
+
+      const infuzeCounts = {};
+      const xcarcityCounts = {};
+      postersData.infuze.forEach(p => { infuzeCounts[`${p.presenter} — ${p.title}`] = 0; });
+      postersData.xcarcity.forEach(p => { xcarcityCounts[`${p.presenter} — ${p.title}`] = 0; });
+
+      let infuzeTotal = 0, xcarcityTotal = 0;
+      const impressionCounts = {};
+
+      votesData.forEach(v => {
+        if (v.infuzeVote && infuzeCounts.hasOwnProperty(v.infuzeVote)) {
+          infuzeCounts[v.infuzeVote]++;
+          infuzeTotal++;
+        }
+        if (v.xcarcityVote && xcarcityCounts.hasOwnProperty(v.xcarcityVote)) {
+          xcarcityCounts[v.xcarcityVote]++;
+          xcarcityTotal++;
+        }
+        [v.infuzeImpressions, v.xcarcityImpressions].forEach(str => {
+          if (str) {
+            str.split(',').map(s => s.trim()).filter(Boolean).forEach(imp => {
+              impressionCounts[imp] = (impressionCounts[imp] || 0) + 1;
+            });
+          }
+        });
+      });
+
+      document.getElementById('infuze-voters').textContent = infuzeTotal;
+      document.getElementById('xcarcity-voters').textContent = xcarcityTotal;
+
+      renderProjectResults('infuze-winner', 'infuze-bars', infuzeCounts, 'infuze');
+      renderProjectResults('xcarcity-winner', 'xcarcity-bars', xcarcityCounts, 'xcarcity');
+      renderImpressions(impressionCounts);
+      renderComments();
+
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.bar-fill').forEach(bar => {
+          const target = bar.dataset.width;
+          bar.style.width = target + '%';
+        });
+      });
+    }
+
+    function renderProjectResults(winnerId, barsId, counts, project) {
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const max = sorted.length > 0 ? sorted[0][1] : 1;
+      const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+      if (sorted.length > 0 && sorted[0][1] > 0) {
+        const [winnerFull, winnerCount] = sorted[0];
+        const parts = winnerFull.split(' — ');
+        const presenter = parts[0];
+        const title = parts.slice(1).join(' — ');
+
+        document.getElementById(winnerId).innerHTML = `
+          <div class="winner-card ${project}">
+            <div class="w-trophy">&#127942;</div>
+            <div class="w-info">
+              <div class="w-label ${project}">Winner</div>
+              <div class="w-title">${escapeHtml(title)}</div>
+              <div class="w-author">${escapeHtml(presenter)}</div>
+            </div>
+            <div class="w-votes">
+              <div class="v-count ${project}">${winnerCount}</div>
+              <div class="v-unit">vote${winnerCount !== 1 ? 's' : ''}</div>
+            </div>
+          </div>`;
+      } else {
+        document.getElementById(winnerId).innerHTML = '';
+      }
+
+      const runners = sorted.slice(1);
+      document.getElementById(barsId).innerHTML = runners.map(([name, count], i) => {
+        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+        const width = max > 0 ? Math.round((count / max) * 100) : 0;
+        const parts = name.split(' — ');
+        const presenter = parts[0];
+
+        return `
+          <div class="bar-row">
+            <div class="bar-label">
+              <span class="bar-label-name">${escapeHtml(presenter)}</span>
+              <span class="bar-label-count">${count} (${pct}%)</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill ${project}" data-width="${width}" style="transition-delay: ${(i * 0.08) + 0.3}s;"></div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderImpressions(counts) {
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      if (sorted.length === 0) {
+        document.getElementById('impressions-section').style.display = 'none';
+        return;
+      }
+      document.getElementById('impressions-section').style.display = '';
+      document.getElementById('impressions-body').innerHTML = sorted.map(([label, count]) => `
+        <div class="impression-pill">
+          <span>${escapeHtml(label)}</span>
+          <span class="ip-count">${count}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderComments() {
+      const comments = votesData
+        .filter(v => (v.overallComment && v.overallComment.trim()) || (v.infuzeComment && v.infuzeComment.trim()) || (v.xcarcityComment && v.xcarcityComment.trim()))
+        .map(v => {
+          const texts = [v.overallComment, v.infuzeComment, v.xcarcityComment]
+            .filter(Boolean)
+            .map(s => s.trim())
+            .filter(Boolean);
+          return {
+            time: new Date(v.timestamp).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+            name: v.voterName || 'Anonymous',
+            text: texts.join(' · ')
+          };
+        })
+        .filter(c => c.text);
+
+      document.getElementById('comments-count').textContent = `${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
+
+      if (comments.length === 0) {
+        document.getElementById('comments-body').innerHTML = '<div class="no-data">No comments yet.</div>';
+        return;
+      }
+
+      document.getElementById('comments-body').innerHTML = comments.map(c => `
+        <div class="comment-item">
+          <div class="ci-meta">
+            <span class="ci-name">${escapeHtml(c.name)}</span>
+            <span>${c.time}</span>
+          </div>
+          <div class="ci-text">${escapeHtml(c.text)}</div>
+        </div>
+      `).join('');
+    }
+
+    function exportCSV(sheetName) {
+      const data = sheetName === 'Votes' ? votesData : feedbackData;
+      if (!data || data.length === 0) {
+        alert(`No ${sheetName.toLowerCase()} data to export.`);
+        return;
+      }
+
+      const headers = Object.keys(data[0]);
+      const csvRows = [
+        headers.join(','),
+        ...data.map(row =>
+          headers.map(h => {
+            const val = String(row[h] || '');
+            return val.includes(',') || val.includes('"') || val.includes('\n')
+              ? `"${val.replace(/"/g, '""')}"` : val;
+          }).join(',')
+        )
+      ];
+
+      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `poster-${sheetName.toLowerCase()}-${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+{
+  "infuze": [
+    {
+      "id": "infuze-01",
+      "presenter": "Peter King",
+      "title": "The Good, the Bad, and the Ugly: Response Quality in Online Surveys",
+      "filename": "Peter_INFUZE_SummerSchool_King_V0.pdf",
+      "thumbnail": "thumbnails/peter-king.png",
+      "thumbnailLg": "thumbnails-lg/peter-king.png",
+      "pdf": "pdfs/peter-king.pdf"
+    },
+    {
+      "id": "infuze-02",
+      "presenter": "Theo Morgan Lundie",
+      "title": "Reimagining Mobility Futures in North West England through Co-Design",
+      "filename": "Theo_INFUZE summer school poster - Theo ML.pdf",
+      "thumbnail": "thumbnails/theo.png",
+      "thumbnailLg": "thumbnails-lg/theo.png",
+      "pdf": "pdfs/theo.pdf"
+    },
+    {
+      "id": "infuze-03",
+      "presenter": "Milad Mehdizadeh",
+      "title": "Carrots or sticks? How to reduce car dependence",
+      "filename": "Milad_final_poster.pdf",
+      "thumbnail": "thumbnails/milad-mehdizadeh.png",
+      "thumbnailLg": "thumbnails-lg/milad-mehdizadeh.png",
+      "pdf": "pdfs/milad-mehdizadeh.pdf"
+    },
+    {
+      "id": "infuze-04",
+      "presenter": "Varun Raturi",
+      "title": "What sustains regular bus ridership? A multilevel model of West Yorkshire First Bus users",
+      "filename": "Varun_Raturi_Summer-School-Poster.pdf",
+      "thumbnail": "thumbnails/varun-raturi.png",
+      "thumbnailLg": "thumbnails-lg/varun-raturi.png",
+      "pdf": "pdfs/varun-raturi.pdf"
+    },
+    {
+      "id": "infuze-05",
+      "presenter": "Susan Amiri",
+      "title": "Household Decision-Making on Car Ownership",
+      "filename": "Susan_Amiri_Poster.pdf",
+      "thumbnail": "thumbnails/susan-amiri.png",
+      "thumbnailLg": "thumbnails-lg/susan-amiri.png",
+      "pdf": "pdfs/susan-amiri.pdf"
+    },
+    {
+      "id": "infuze-06",
+      "presenter": "Monica Scigliano",
+      "title": "The role of public engagement in street space reallocation acceptance",
+      "filename": "Monica_MS poster.pdf",
+      "thumbnail": "thumbnails/monica.png",
+      "thumbnailLg": "thumbnails-lg/monica.png",
+      "pdf": "pdfs/monica.pdf"
+    },
+    {
+      "id": "infuze-07",
+      "presenter": "William Burrows",
+      "title": "Car-sharing in London: Business Model or Public Service?",
+      "filename": "William_Summer School Poster Final.pdf",
+      "thumbnail": "thumbnails/william.png",
+      "thumbnailLg": "thumbnails-lg/william.png",
+      "pdf": "pdfs/william.pdf"
+    }
+  ],
+  "xcarcity": [
+    {
+      "id": "xcarcity-01",
+      "presenter": "Andrea Dominguez Gamez",
+      "title": "Rethinking urban logistics: crowdsourced delivery using people's trips",
+      "filename": "Andrea_Gamez_posterCSD_ss2026.pdf",
+      "thumbnail": "thumbnails/andrea-gamez.png",
+      "thumbnailLg": "thumbnails-lg/andrea-gamez.png",
+      "pdf": "pdfs/andrea-gamez.pdf"
+    },
+    {
+      "id": "xcarcity-02",
+      "presenter": "Dennis Andreoli",
+      "title": "Perceived Cycling Safety: Integrating Evidence From Complementary Experimental Approaches",
+      "filename": "Dennis_Andreoli_260512 A1 poster - DTL Andreoli.pdf",
+      "thumbnail": "thumbnails/dennis-andreoli.png",
+      "thumbnailLg": "thumbnails-lg/dennis-andreoli.png",
+      "pdf": "pdfs/dennis-andreoli.pdf"
+    },
+    {
+      "id": "xcarcity-03",
+      "presenter": "Enshan Chen",
+      "title": "A macroscopic pedestrian model using open data",
+      "filename": "Enshan_Chen_1_poster_pedModel.pdf",
+      "thumbnail": "thumbnails/enshan-chen-1.png",
+      "thumbnailLg": "thumbnails-lg/enshan-chen-1.png",
+      "pdf": "pdfs/enshan-chen-1.pdf"
+    },
+    {
+      "id": "xcarcity-04",
+      "presenter": "Enshan Chen",
+      "title": "Federated digital twins for design evaluation: multi-sensory user experience",
+      "filename": "Enshan_Chen_2_poster_digitalTwins.pdf",
+      "thumbnail": "thumbnails/enshan-chen-2.png",
+      "thumbnailLg": "thumbnails-lg/enshan-chen-2.png",
+      "pdf": "pdfs/enshan-chen-2.pdf"
+    },
+    {
+      "id": "xcarcity-05",
+      "presenter": "Jyotsna Singh",
+      "title": "Green Cities, Fair Access? Quantifying the Socio-Spatial Welfare and Accessibility Impacts of Parking Standards",
+      "filename": "Jyotsna Singh_ PhD Poster_ TU Delft.pdf",
+      "thumbnail": "thumbnails/jyotsna-singh.png",
+      "thumbnailLg": "thumbnails-lg/jyotsna-singh.png",
+      "pdf": "pdfs/jyotsna-singh.pdf"
+    },
+    {
+      "id": "xcarcity-06",
+      "presenter": "Mohammad Jafari",
+      "title": "Sensor Network Design for Strategic Multi-modal Transportation Service Planning in Low-Car Cities",
+      "filename": "Mohammed_Jafari_poster_A1_Mohammad.pdf",
+      "thumbnail": "thumbnails/mohammed-jafari.png",
+      "thumbnailLg": "thumbnails-lg/mohammed-jafari.png",
+      "pdf": "pdfs/mohammed-jafari.pdf"
+    },
+    {
+      "id": "xcarcity-07",
+      "presenter": "Nourhan Shokry",
+      "title": "Adaptive road space for efficient, equitable and sustainable cities",
+      "filename": "Nourhan_poster_A1.pdf",
+      "thumbnail": "thumbnails/nourhan-shokry.png",
+      "thumbnailLg": "thumbnails-lg/nourhan-shokry.png",
+      "pdf": "pdfs/nourhan-shokry.pdf"
+    },
+    {
+      "id": "xcarcity-08",
+      "presenter": "Tian Zwart",
+      "title": "Research-by-Design Methodology",
+      "filename": "Tian_Research-by-Design_Poster_TianZwart.pdf",
+      "thumbnail": "thumbnails/tian-zwart.png",
+      "thumbnailLg": "thumbnails-lg/tian-zwart.png",
+      "pdf": "pdfs/tian-zwart.pdf"
+    },
+    {
+      "id": "xcarcity-09",
+      "presenter": "Yuxing Cheng",
+      "title": "Sensor network design towards real-time low-car traffic management",
+      "filename": "YuxingCheng_TUDelft.pdf",
+      "thumbnail": "thumbnails/yuxing-cheng.png",
+      "thumbnailLg": "thumbnails-lg/yuxing-cheng.png",
+      "pdf": "pdfs/yuxing-cheng.pdf"
+    },
+    {
+      "id": "xcarcity-10",
+      "presenter": "Alex Roocroft",
+      "title": "Green Nets: Optimised Pedestrian Travel on Signalised Corridors",
+      "filename": "Alex_Roocroft_Green_Net_INFUZEXCARCITY_A1_Poster_v3.pdf",
+      "thumbnail": "thumbnails/alex-roocroft.png",
+      "thumbnailLg": "thumbnails-lg/alex-roocroft.png",
+      "pdf": "pdfs/alex-roocroft.pdf"
+    }
+  ]
+}

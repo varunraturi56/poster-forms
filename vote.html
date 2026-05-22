@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Poster Voting — INFUZE × XCARCITY Summer School 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --infuze: #009b91;
+      --infuze-light: #e6f7f6;
+      --infuze-dark: #007a72;
+      --infuze-purple: #827daf;
+      --infuze-mint: #73dcaa;
+      --infuze-maroon: #5a2337;
+      --infuze-midnight: #141432;
+      --xcarcity: #2d2d8e;
+      --xcarcity-light: #ededf8;
+      --xcarcity-dark: #1a1a6e;
+      --xcarcity-red: #e3161a;
+      --xcarcity-green: #009a3d;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5a;
+      --text-muted: #8a8a9a;
+      --bg: #f4f5f7;
+      --card-bg: #fff;
+      --border: #dfe1e6;
+      --border-light: #ecedf0;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(20,20,50,0.06), 0 1px 2px rgba(20,20,50,0.04);
+      --shadow-md: 0 4px 12px rgba(20,20,50,0.08), 0 2px 4px rgba(20,20,50,0.04);
+      --teal-bright: #00d4c8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 100px;
+    }
+
+    /* ---- Header Band ---- */
+    .header-band {
+      background: linear-gradient(160deg, var(--infuze-midnight) 0%, #1e1e4a 40%, var(--infuze-maroon) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px 20px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-band::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -30%;
+      width: 60%; height: 200%;
+      background: radial-gradient(ellipse, rgba(0,155,145,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-band .school-year {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--infuze-purple);
+      margin-bottom: 6px;
+    }
+    .header-band .school-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.3;
+      max-width: 380px;
+      margin: 0 auto 8px;
+    }
+    .header-band .page-title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      color: var(--teal-bright);
+    }
+    .header-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+
+    /* ---- Container ---- */
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 32px;
+    }
+
+    /* ---- Fixed Footer ---- */
+    .page-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 100;
+    }
+    .wizard-progress {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-light);
+    }
+    .wizard-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all 0.3s ease;
+    }
+    .wizard-dot.active {
+      background: var(--infuze);
+      width: 24px;
+      border-radius: 4px;
+    }
+    .wizard-dot.done { background: var(--infuze-mint); }
+
+    .footer-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+    .footer-band {
+      background: var(--infuze-midnight);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0 max(12px, env(safe-area-inset-bottom));
+    }
+    .footer-band img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      filter: saturate(1.3) brightness(1.6);
+    }
+    .footer-band .sep {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+
+    /* ---- Steps ---- */
+    .step { display: none; animation: fadeIn 0.35s ease; }
+    .step.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-heading {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .step-desc {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    /* ---- Nav Row (back + next at bottom) ---- */
+    .nav-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      align-items: stretch;
+    }
+    .nav-row .btn-back { flex: 0 0 auto; }
+    .nav-row .btn-next,
+    .nav-row .btn-submit { flex: 1; }
+
+    /* ---- Step 0: Project pick ---- */
+    .project-pick {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .project-pick-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 16px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: var(--shadow-sm);
+      min-height: 140px;
+    }
+    .project-pick-btn:hover {
+      border-color: var(--infuze);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+    .project-pick-btn:active { transform: translateY(0); }
+    .project-pick-btn .pick-logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      width: 100%;
+      margin-bottom: 12px;
+    }
+    .project-pick-btn .pick-logo {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .project-pick-btn .pick-count {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .project-pick-btn.done {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* ---- Step 1: Browse ---- */
+    .browse-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .browse-header .project-logo { height: 28px; }
+    .browse-header .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      color: #fff;
+    }
+    .browse-header .badge.infuze { background: var(--infuze); }
+    .browse-header .badge.xcarcity { background: var(--xcarcity); }
+
+    .poster-list { margin-bottom: 4px; }
+
+    .poster-item {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      box-shadow: var(--shadow-sm);
+    }
+    .poster-item:hover {
+      border-color: var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .poster-item.selected-infuze {
+      border-color: var(--infuze);
+      background: var(--infuze-light);
+    }
+    .poster-item.selected-xcarcity {
+      border-color: var(--xcarcity);
+      background: var(--xcarcity-light);
+    }
+    .poster-item .p-thumb {
+      width: 44px; height: 56px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: var(--bg);
+    }
+    .poster-item .p-info {
+      margin-left: 12px;
+      flex: 1;
+      min-width: 0;
+    }
+    .poster-item .p-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .poster-item .p-author {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .poster-item .p-end {
+      flex-shrink: 0;
+      margin-left: 8px;
+      font-size: 16px;
+    }
+    .poster-item .p-check { color: var(--infuze); }
+    .poster-item .p-check.xcarcity { color: var(--xcarcity); }
+    .poster-item .p-arrow { color: var(--border); }
+
+    /* ---- Step 2: Detail ---- */
+    .detail-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .detail-card .d-image {
+      max-width: 100%;
+      max-height: 280px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+    }
+    .detail-card .d-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 14px;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .detail-card .d-author {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .detail-card .d-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Buttons ---- */
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 10px 16px;
+      background: none;
+      border: 1.5px solid var(--border);
+      color: var(--text-secondary);
+      border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      white-space: nowrap;
+    }
+    .btn-back:hover { border-color: var(--text-muted); }
+
+    .btn-view-poster {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 10px 18px;
+      border: 1.5px solid var(--infuze);
+      color: var(--infuze);
+      background: none;
+      border-radius: var(--radius-sm);
+      font-size: 13px; font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .btn-view-poster:hover { background: var(--infuze-light); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      padding: 10px 22px;
+      background: var(--infuze);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+    }
+    .btn-primary:hover { background: var(--infuze-dark); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-primary.xcarcity { background: var(--xcarcity); }
+    .btn-primary.xcarcity:hover { background: var(--xcarcity-dark); }
+    .btn-primary.xcarcity:disabled { opacity: 0.4; }
+
+    .btn-submit {
+      padding: 15px;
+      background: linear-gradient(135deg, var(--infuze) 0%, var(--infuze-dark) 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 16px; font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(0,155,145,0.25);
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,155,145,0.3); }
+    .btn-submit:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .btn-next {
+      padding: 14px;
+      background: var(--infuze);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 15px; font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s;
+    }
+    .btn-next:disabled {
+      background: var(--border);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    /* ---- Feedback area ---- */
+    .feedback-area {
+      display: none;
+      margin-top: 16px;
+      padding: 20px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    .feedback-area.visible { display: block; }
+
+    .feedback-section-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .form-label .optional {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .chip {
+      padding: 10px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 12px; font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      font-family: inherit;
+      text-align: center;
+    }
+    .chip.selected {
+      border-color: var(--infuze);
+      background: var(--infuze-light);
+      color: var(--infuze);
+    }
+
+    .form-textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 72px;
+      font-family: inherit;
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--infuze);
+      box-shadow: 0 0 0 3px rgba(0,155,145,0.1);
+    }
+
+    /* ---- Confirm cards ---- */
+    .confirm-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .confirm-card img {
+      width: 48px; height: 62px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .confirm-card .c-info { margin-left: 12px; flex: 1; }
+    .confirm-card .c-project {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
+    .confirm-card .c-project.infuze { color: var(--infuze); }
+    .confirm-card .c-project.xcarcity { color: var(--xcarcity); }
+    .confirm-card .c-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+    .confirm-card .c-author {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .confirm-card .c-change {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--infuze);
+      cursor: pointer;
+      flex-shrink: 0;
+      -webkit-tap-highlight-color: transparent;
+      padding: 4px 0;
+    }
+
+    /* ---- Success ---- */
+    .success-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-box .s-icon { font-size: 48px; margin-bottom: 16px; }
+    .success-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .success-box p { font-size: 14px; color: var(--text-secondary); }
+    .success-box .s-revote {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .success-box .s-revote a { color: var(--infuze); font-weight: 500; }
+
+    .identity-toggle {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .identity-btn {
+      flex: 1;
+      padding: 10px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.15s;
+      text-align: center;
+    }
+    .identity-btn.active {
+      border-color: var(--infuze);
+      background: var(--infuze-light);
+      color: var(--infuze);
+    }
+    .form-input {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      transition: border-color 0.15s;
+      margin-top: 8px;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--infuze);
+      box-shadow: 0 0 0 3px rgba(0,155,145,0.1);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ---- Lightbox ---- */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 40px; height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1001;
+      -webkit-tap-highlight-color: transparent;
+      backdrop-filter: blur(4px);
+    }
+    .lightbox-info {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .lightbox-info h3 { font-size: 16px; font-weight: 600; }
+    .lightbox-info p { font-size: 13px; opacity: 0.7; }
+    .lightbox-img-container {
+      max-width: 92vw;
+      max-height: 75vh;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 8px;
+    }
+    .lightbox-img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-band">
+    <div class="school-year">Summer School 2026</div>
+    <div class="school-title">Understanding the pathways to car-free living in urban contexts</div>
+    <div class="page-title">Best Poster Voting</div>
+  </div>
+  <div class="header-accent"></div>
+
+  <div class="container" id="app">
+
+    <!-- ======== Step 0: Pick project ======== -->
+    <div class="step active" id="step-pick-project">
+      <h2 class="step-heading">Select a Project</h2>
+      <p class="step-desc">Vote for your favourite poster from each project &mdash; INFUZE and XCARCITY. Pick either to start.</p>
+      <div class="project-pick">
+        <button class="project-pick-btn" onclick="startProject('infuze')" id="pick-infuze">
+          <div class="pick-logo-wrap"><img class="pick-logo" src="assets/infuze-logo.png" alt="INFUZE"></div>
+          <span class="pick-count">7 posters</span>
+        </button>
+        <button class="project-pick-btn" onclick="startProject('xcarcity')" id="pick-xcarcity">
+          <div class="pick-logo-wrap"><img class="pick-logo" src="assets/xcarcity-logo.png" alt="XCARCITY"></div>
+          <span class="pick-count">10 posters</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ======== Step 1: Browse posters ======== -->
+    <div class="step" id="step-browse">
+      <div class="browse-header">
+        <img id="browse-logo" class="project-logo" src="" alt="">
+        <span id="browse-badge" class="badge"></span>
+      </div>
+      <p class="step-desc" style="margin-top:-4px;">Tap any poster to preview it, then select your favourite.</p>
+      <div class="poster-list" id="poster-list"></div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBackFromBrowse()">&#8592; Back</button>
+        <button class="btn-next" id="btn-next-browse" disabled onclick="nextFromBrowse()">
+          Next &#8594;
+        </button>
+      </div>
+    </div>
+
+    <!-- ======== Step 2: Poster detail ======== -->
+    <div class="step" id="step-detail">
+      <div class="detail-card" id="poster-detail"></div>
+      <div class="feedback-area" id="post-select-feedback">
+        <div class="feedback-section-title">Quick Impressions</div>
+        <div class="form-group">
+          <label class="form-label">What stood out? <span class="optional">(select any that apply)</span></label>
+          <div class="chips" id="detail-chips"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Why this poster? <span class="optional">(optional)</span></label>
+          <textarea class="form-textarea" id="detail-comment" placeholder="Share your thoughts..."></textarea>
+        </div>
+      </div>
+      <div class="nav-row" style="margin-top:16px;">
+        <button class="btn-back" onclick="goBackToList()">&#8592; Back</button>
+        <button class="btn-next" id="btn-continue-detail" disabled onclick="continueAfterSelection()">
+          Continue &#8594;
+        </button>
+      </div>
+    </div>
+
+    <!-- ======== Step 3: Confirmation ======== -->
+    <div class="step" id="step-confirm">
+      <h2 class="step-heading">Your Selections</h2>
+      <p class="step-desc">Review your choices below. Tap "Change" to update either selection.</p>
+      <div id="confirm-cards"></div>
+      <div class="form-group" style="margin-top:20px;">
+        <label class="form-label">Overall comments <span class="optional">(optional)</span></label>
+        <textarea class="form-textarea" id="overall-comment" placeholder="General thoughts on the poster session..."></textarea>
+      </div>
+      <div class="form-group" style="margin-top:20px;">
+        <label class="form-label">Your identity</label>
+        <div class="identity-toggle">
+          <button type="button" class="identity-btn active" onclick="setIdentity(false, this)">Stay anonymous</button>
+          <button type="button" class="identity-btn" onclick="setIdentity(true, this)">Add my name</button>
+        </div>
+        <input type="text" class="form-input" id="voter-name" placeholder="Enter your name..." style="display:none;">
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="goBackFromConfirm()">&#8592; Back</button>
+        <button class="btn-submit" onclick="submitVote()">Submit My Votes</button>
+      </div>
+      <p class="footer-note">You can update your vote later</p>
+    </div>
+
+    <!-- ======== Success ======== -->
+    <div class="step" id="step-success">
+      <div class="success-box">
+        <div class="s-icon">&#127942;</div>
+        <h2>Vote submitted!</h2>
+        <p>Thanks for voting in the poster session. Your choices have been recorded.</p>
+        <p class="s-revote">Changed your mind? <a href="#" onclick="allowRevote();return false;">Update your vote</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed footer -->
+  <div class="page-footer">
+    <div class="wizard-progress">
+      <div class="wizard-dot active" data-step="0"></div>
+      <div class="wizard-dot" data-step="1"></div>
+      <div class="wizard-dot" data-step="2"></div>
+      <div class="wizard-dot" data-step="3"></div>
+    </div>
+    <div class="footer-accent"></div>
+    <div class="footer-band">
+      <img src="assets/infuze-logo.png" alt="INFUZE">
+      <span class="sep">&times;</span>
+      <img src="assets/xcarcity-logo.png" alt="XCARCITY">
+    </div>
+  </div>
+
+  <script>
+    // ---- Lightbox (inline, replaces js/lightbox.js) ----
+    const Lightbox = (() => {
+      let overlay = null;
+
+      function init() {
+        overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.innerHTML = `
+          <button class="lightbox-close" aria-label="Close">&times;</button>
+          <div class="lightbox-info"><h3></h3><p></p></div>
+          <div class="lightbox-img-container"><img src="" alt="Poster"></div>
+        `;
+        document.body.appendChild(overlay);
+        overlay.querySelector('.lightbox-close').addEventListener('click', close);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+      }
+
+      function open(poster) {
+        if (!overlay) init();
+        overlay.querySelector('.lightbox-info').style.display = 'none';
+        overlay.querySelector('.lightbox-img-container img').src = poster.thumbnailLg;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        if (!overlay) return;
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      return { open, close };
+    })();
+
+    // ---- App state ----
+    const SCRIPT_URL = '';
+    const CHIP_OPTIONS = ['Clear visuals', 'Novel methodology', 'Strong results', 'Well written', 'Interesting topic', 'Good layout'];
+
+    let postersData = null;
+    let currentProject = null;
+    let projectOrder = [];
+    let currentPosterIndex = -1;
+    let selections = { infuze: null, xcarcity: null };
+    let impressions = { infuze: [], xcarcity: [] };
+    let comments = { infuze: '', xcarcity: '' };
+    let deviceId = localStorage.getItem('poster-vote-device') || generateDeviceId();
+
+    function generateDeviceId() {
+      const id = 'dev-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+      localStorage.setItem('poster-vote-device', id);
+      return id;
+    }
+
+    function escapeHtml(s) {
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    // ---- Init ----
+    async function init() {
+      const res = await fetch('posters.json');
+      postersData = await res.json();
+      const prev = localStorage.getItem('poster-vote-data');
+      if (prev) {
+        try {
+          const saved = JSON.parse(prev);
+          selections = saved.selections || { infuze: null, xcarcity: null };
+          impressions = saved.impressions || { infuze: [], xcarcity: [] };
+          comments = saved.comments || { infuze: '', xcarcity: '' };
+          if (selections.infuze && selections.xcarcity) {
+            showStep('step-success');
+            return;
+          }
+        } catch(e) {}
+      }
+      showStep('step-pick-project');
+    }
+
+    // ---- Navigation ----
+    function showStep(stepId) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById(stepId).classList.add('active');
+      updateProgress(stepId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgress(stepId) {
+      const stepMap = { 'step-pick-project': 0, 'step-browse': 1, 'step-detail': 2, 'step-confirm': 3, 'step-success': 3 };
+      const current = stepMap[stepId] || 0;
+      document.querySelectorAll('.wizard-dot').forEach((dot, i) => {
+        dot.classList.remove('active', 'done');
+        if (i < current) dot.classList.add('done');
+        if (i === current) dot.classList.add('active');
+      });
+    }
+
+    // ---- Step 0 ----
+    function startProject(project) {
+      currentProject = project;
+      if (!projectOrder.includes(project)) projectOrder.push(project);
+      renderPosterList();
+      showStep('step-browse');
+    }
+
+    // ---- Step 1: Browse ----
+    function renderPosterList() {
+      const posters = postersData[currentProject];
+      const isInfuze = currentProject === 'infuze';
+      const logoSrc = isInfuze ? 'assets/infuze-logo.png' : 'assets/xcarcity-logo.png';
+
+      document.getElementById('browse-logo').src = logoSrc;
+      document.getElementById('browse-logo').style.height = isInfuze ? '28px' : '24px';
+      const badge = document.getElementById('browse-badge');
+      badge.textContent = `${posters.length} posters`;
+      badge.className = `badge ${currentProject}`;
+
+      const hasSelection = !!selections[currentProject];
+
+      const list = document.getElementById('poster-list');
+      list.innerHTML = posters.map((p, i) => {
+        const selected = selections[currentProject]?.id === p.id;
+        const cls = selected ? ` selected-${currentProject}` : '';
+        const endIcon = selected
+          ? `<span class="p-check ${currentProject === 'xcarcity' ? 'xcarcity' : ''}">&#10003;</span>`
+          : '<span class="p-arrow">&#8250;</span>';
+        return `
+          <div class="poster-item${cls}" onclick="showPosterDetail(${i})">
+            <img class="p-thumb" src="${p.thumbnail}" alt="">
+            <div class="p-info">
+              <div class="p-title">${escapeHtml(p.title)}</div>
+              <div class="p-author">${escapeHtml(p.presenter)}</div>
+            </div>
+            <span class="p-end">${endIcon}</span>
+          </div>`;
+      }).join('');
+
+      const nextBtn = document.getElementById('btn-next-browse');
+      nextBtn.disabled = !hasSelection;
+    }
+
+    function nextFromBrowse() {
+      const otherProject = currentProject === 'infuze' ? 'xcarcity' : 'infuze';
+      if (!selections[otherProject]) {
+        currentProject = otherProject;
+        if (!projectOrder.includes(otherProject)) projectOrder.push(otherProject);
+        renderPosterList();
+        showStep('step-browse');
+      } else {
+        showConfirmation();
+      }
+    }
+
+    function goBackFromBrowse() {
+      showStep('step-pick-project');
+    }
+
+    // ---- Step 2: Detail ----
+    function showPosterDetail(index) {
+      currentPosterIndex = index;
+      const poster = postersData[currentProject][index];
+      const isXcarcity = currentProject === 'xcarcity';
+      const alreadySelected = selections[currentProject]?.id === poster.id;
+
+      if (alreadySelected) {
+        renderDetailSelected(poster, isXcarcity);
+        showFeedbackArea();
+        document.getElementById('btn-continue-detail').disabled = false;
+      } else {
+        renderDetailUnselected(poster, isXcarcity);
+        document.getElementById('post-select-feedback').classList.remove('visible');
+        document.getElementById('btn-continue-detail').disabled = true;
+      }
+
+      showStep('step-detail');
+    }
+
+    function renderDetailUnselected(poster, isXcarcity) {
+      const btnCls = isXcarcity ? 'btn-primary xcarcity' : 'btn-primary';
+      document.getElementById('poster-detail').innerHTML = `
+        <img class="d-image" src="${poster.thumbnailLg}" alt="${escapeHtml(poster.title)}">
+        <div class="d-title">${escapeHtml(poster.title)}</div>
+        <div class="d-author">${escapeHtml(poster.presenter)}</div>
+        <div class="d-actions">
+          <button class="btn-view-poster" onclick="openPosterLightbox()">
+            &#128269; View Full Poster
+          </button>
+          <button class="${btnCls}" onclick="selectPoster()">
+            Vote for This Poster
+          </button>
+        </div>`;
+    }
+
+    function renderDetailSelected(poster, isXcarcity) {
+      const btnCls = isXcarcity ? 'btn-primary xcarcity' : 'btn-primary';
+      document.getElementById('poster-detail').innerHTML = `
+        <img class="d-image" src="${poster.thumbnailLg}" alt="${escapeHtml(poster.title)}">
+        <div class="d-title">${escapeHtml(poster.title)}</div>
+        <div class="d-author">${escapeHtml(poster.presenter)}</div>
+        <div class="d-actions">
+          <button class="btn-view-poster" onclick="openPosterLightbox()">
+            &#128269; View Full Poster
+          </button>
+          <button class="${btnCls}" disabled style="opacity:0.6;">&#10003; Selected</button>
+        </div>`;
+    }
+
+    function openPosterLightbox() {
+      const poster = postersData[currentProject][currentPosterIndex];
+      Lightbox.open({ title: poster.title, presenter: poster.presenter, thumbnailLg: poster.thumbnailLg });
+    }
+
+    function showFeedbackArea() {
+      const savedChips = impressions[currentProject] || [];
+      document.getElementById('detail-chips').innerHTML = CHIP_OPTIONS.map(chip => {
+        const sel = savedChips.includes(chip) ? ' selected' : '';
+        return `<span class="chip${sel}" data-chip="${chip}" onclick="toggleChip(this)">${chip}</span>`;
+      }).join('');
+      document.getElementById('detail-comment').value = comments[currentProject] || '';
+      document.getElementById('post-select-feedback').classList.add('visible');
+    }
+
+    function selectPoster() {
+      const poster = postersData[currentProject][currentPosterIndex];
+      const isXcarcity = currentProject === 'xcarcity';
+      selections[currentProject] = poster;
+
+      renderDetailSelected(poster, isXcarcity);
+      showFeedbackArea();
+      document.getElementById('btn-continue-detail').disabled = false;
+    }
+
+    function toggleChip(el) { el.classList.toggle('selected'); }
+
+    function saveCurrentDetailState() {
+      const selectedChips = [];
+      document.querySelectorAll('#detail-chips .chip.selected').forEach(c => selectedChips.push(c.dataset.chip));
+      impressions[currentProject] = selectedChips;
+      comments[currentProject] = document.getElementById('detail-comment').value;
+    }
+
+    function goBackToList() {
+      if (document.getElementById('post-select-feedback').classList.contains('visible')) {
+        saveCurrentDetailState();
+      }
+      document.getElementById('post-select-feedback').classList.remove('visible');
+      document.getElementById('btn-continue-detail').disabled = true;
+      renderPosterList();
+      showStep('step-browse');
+    }
+
+    function continueAfterSelection() {
+      saveCurrentDetailState();
+      document.getElementById('post-select-feedback').classList.remove('visible');
+      document.getElementById('btn-continue-detail').disabled = true;
+
+      const otherProject = currentProject === 'infuze' ? 'xcarcity' : 'infuze';
+      if (!selections[otherProject]) {
+        currentProject = otherProject;
+        if (!projectOrder.includes(otherProject)) projectOrder.push(otherProject);
+        renderPosterList();
+        showStep('step-browse');
+      } else {
+        showConfirmation();
+      }
+    }
+
+    // ---- Step 3: Confirm ----
+    function showConfirmation() {
+      const html = ['infuze', 'xcarcity'].map(proj => {
+        const sel = selections[proj];
+        if (!sel) return '';
+        const projName = proj.toUpperCase();
+        const chips = impressions[proj]?.length > 0
+          ? `<div style="margin-top:4px;font-size:11px;color:var(--text-muted);">${impressions[proj].join(', ')}</div>` : '';
+        const comment = comments[proj]
+          ? `<div style="margin-top:4px;font-size:12px;color:var(--text-secondary);font-style:italic;">"${escapeHtml(comments[proj])}"</div>` : '';
+        return `
+          <div class="confirm-card">
+            <img src="${sel.thumbnail}" alt="">
+            <div class="c-info">
+              <div class="c-project ${proj}">${projName}</div>
+              <div class="c-title">${escapeHtml(sel.title)}</div>
+              <div class="c-author">${escapeHtml(sel.presenter)}</div>
+              ${chips}${comment}
+            </div>
+            <span class="c-change" onclick="changeVote('${proj}')">Change</span>
+          </div>`;
+      }).join('');
+      document.getElementById('confirm-cards').innerHTML = html;
+      showStep('step-confirm');
+    }
+
+    function changeVote(project) {
+      currentProject = project;
+      renderPosterList();
+      showStep('step-browse');
+    }
+
+    function goBackFromConfirm() {
+      const lastProject = projectOrder[projectOrder.length - 1] || 'infuze';
+      currentProject = lastProject;
+      renderPosterList();
+      showStep('step-browse');
+    }
+
+    // ---- Submit ----
+    async function submitVote() {
+      const btn = document.querySelector('#step-confirm .btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      const payload = {
+        sheet: 'Votes',
+        data: {
+          timestamp: new Date().toISOString(),
+          deviceId: deviceId,
+          infuzeVote: selections.infuze ? `${selections.infuze.presenter} — ${selections.infuze.title}` : '',
+          infuzeImpressions: (impressions.infuze || []).join(', '),
+          infuzeComment: comments.infuze || '',
+          xcarcityVote: selections.xcarcity ? `${selections.xcarcity.presenter} — ${selections.xcarcity.title}` : '',
+          xcarcityImpressions: (impressions.xcarcity || []).join(', '),
+          xcarcityComment: comments.xcarcity || '',
+          overallComment: document.getElementById('overall-comment').value || '',
+          voterName: document.getElementById('voter-name').value.trim() || 'Anonymous'
+        }
+      };
+
+      try {
+        if (SCRIPT_URL) {
+          await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        } else {
+          console.log('Vote payload (SCRIPT_URL not set):', payload);
+        }
+        localStorage.setItem('poster-vote-data', JSON.stringify({ selections, impressions, comments, submittedAt: new Date().toISOString() }));
+        btn.disabled = false;
+        btn.textContent = 'Submit My Votes';
+        showStep('step-success');
+      } catch (e) {
+        console.error('Submit error:', e);
+        btn.disabled = false;
+        btn.textContent = 'Submit My Votes';
+        alert('Something went wrong. Please try again.');
+      }
+    }
+
+    function allowRevote() {
+      localStorage.removeItem('poster-vote-data');
+      selections = { infuze: null, xcarcity: null };
+      impressions = { infuze: [], xcarcity: [] };
+      comments = { infuze: '', xcarcity: '' };
+      projectOrder = [];
+      showStep('step-pick-project');
+    }
+
+    function setIdentity(showName, btn) {
+      document.querySelectorAll('.identity-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('voter-name').style.display = showName ? '' : 'none';
+      if (!showName) document.getElementById('voter-name').value = '';
+    }
+
+    init();
+  </script>
+</body>
+</html>
