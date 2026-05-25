@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFUZE × XCARCITY Summer School 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --infuze: #009b91;
+      --infuze-light: #e6f7f6;
+      --infuze-dark: #007a72;
+      --infuze-purple: #827daf;
+      --infuze-mint: #73dcaa;
+      --infuze-maroon: #5a2337;
+      --infuze-midnight: #141432;
+      --teal-bright: #00e0d0;
+      --bg: #f4f5f7;
+      --text: #1a1a2e;
+      --text-secondary: #4a4a5a;
+      --border: #dfe1e6;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-band {
+      background: linear-gradient(160deg, var(--infuze-midnight) 0%, #1e1e4a 40%, var(--infuze-maroon) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 32px 20px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-band::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -30%;
+      width: 60%; height: 200%;
+      background: radial-gradient(ellipse, rgba(0,155,145,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-band .school-year {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--infuze-purple);
+      margin-bottom: 6px;
+    }
+    .header-band .school-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.3;
+      max-width: 380px;
+      margin: 0 auto 8px;
+    }
+    .header-band .page-title {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      color: var(--teal-bright);
+    }
+    .header-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      max-width: 340px;
+      margin-bottom: 8px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      padding: 20px 24px;
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .link-card:hover {
+      border-color: var(--infuze);
+      box-shadow: 0 4px 16px rgba(0,155,145,0.12);
+      transform: translateY(-2px);
+    }
+    .link-icon {
+      font-size: 28px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+    .link-icon.vote { background: var(--infuze-light); }
+    .link-icon.feedback { background: #f3eef5; }
+    .link-icon.results { background: #eef6ff; }
+    .link-card-text h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .link-card-text p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .link-arrow {
+      margin-left: auto;
+      font-size: 18px;
+      color: var(--border);
+      transition: color 0.2s;
+    }
+    .link-card:hover .link-arrow { color: var(--infuze); }
+
+    .footer-accent {
+      height: 3px;
+      background: linear-gradient(90deg, var(--infuze) 0%, var(--infuze-mint) 50%, var(--infuze-purple) 100%);
+    }
+    .footer-band {
+      background: var(--infuze-midnight);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .footer-band img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      filter: saturate(1.3) brightness(1.6);
+    }
+    .footer-band .sep {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-band">
+    <div class="school-year">Summer School 2026</div>
+    <div class="school-title">Understanding the pathways to car-free living in urban contexts</div>
+    <div class="page-title">Poster Session</div>
+  </div>
+  <div class="header-accent"></div>
+
+  <div class="container">
+    <p class="tagline">Welcome to the INFUZE &times; XCARCITY poster session. Choose an option below.</p>
+
+    <a href="vote.html" class="link-card">
+      <div class="link-icon vote">&#127942;</div>
+      <div class="link-card-text">
+        <h3>Best Poster Voting</h3>
+        <p>Vote for your favourite poster from each project</p>
+      </div>
+      <span class="link-arrow">&#8250;</span>
+    </a>
+
+    <a href="feedback.html" class="link-card">
+      <div class="link-icon feedback">&#128172;</div>
+      <div class="link-card-text">
+        <h3>Poster Feedback</h3>
+        <p>Leave constructive feedback on any poster</p>
+      </div>
+      <span class="link-arrow">&#8250;</span>
+    </a>
+
+    <a href="results.html" class="link-card">
+      <div class="link-icon results">&#128202;</div>
+      <div class="link-card-text">
+        <h3>Live Results</h3>
+        <p>See real-time voting results and feedback</p>
+      </div>
+      <span class="link-arrow">&#8250;</span>
+    </a>
+  </div>
+
+  <div class="footer-accent"></div>
+  <div class="footer-band">
+    <img src="assets/infuze-logo.png" alt="INFUZE">
+    <span class="sep">&times;</span>
+    <img src="assets/xcarcity-logo.png" alt="XCARCITY">
+  </div>
+
+</body>
+</html>
