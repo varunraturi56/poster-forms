@@ -312,8 +312,8 @@
       background: linear-gradient(90deg, var(--xcarcity) 0%, #5858c8 100%);
     }
 
-    /* ---- Impressions summary ---- */
-    .impressions-section {
+    /* ---- Feedback summary ---- */
+    .feedback-section {
       margin-bottom: 24px;
       background: var(--card-bg);
       border: 1.5px solid var(--border-light);
@@ -321,100 +321,75 @@
       box-shadow: var(--shadow-sm);
       overflow: hidden;
     }
-    .impressions-header {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-secondary);
-    }
-    .impressions-body {
-      padding: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .impression-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      background: var(--bg);
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-    .impression-pill .ip-count {
-      background: var(--infuze);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      min-width: 22px;
-      height: 22px;
-      border-radius: 11px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 6px;
-    }
-
-    /* ---- Comments section ---- */
-    .comments-section {
-      margin-bottom: 24px;
-      background: var(--card-bg);
-      border: 1.5px solid var(--border-light);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-    .comments-header {
+    .feedback-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 14px 16px;
       border-bottom: 1px solid var(--border-light);
     }
-    .comments-header .ch-title {
+    .feedback-header .fh-title {
       font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--text-secondary);
     }
-    .comments-header .ch-count {
+    .feedback-header .fh-count {
       font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
     }
-    .comments-body {
-      padding: 12px 16px;
-      max-height: 300px;
-      overflow-y: auto;
+    .feedback-body {
+      padding: 0;
     }
-    .comment-item {
-      padding: 12px 0;
+    .fb-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border-light);
     }
-    .comment-item:last-child { border-bottom: none; }
-    .comment-item .ci-meta {
+    .fb-row:last-child { border-bottom: none; }
+    .fb-project {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .fb-project.infuze { background: var(--infuze-light); color: var(--infuze-dark); }
+    .fb-project.xcarcity { background: var(--xcarcity-light); color: var(--xcarcity-dark); }
+    .fb-info { flex: 1; min-width: 0; }
+    .fb-presenter {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .fb-impressions {
       font-size: 11px;
       color: var(--text-muted);
-      margin-bottom: 4px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .comment-item .ci-meta .ci-name {
-      font-weight: 600;
-      color: var(--text-secondary);
+    .fb-count {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--infuze);
+      flex-shrink: 0;
+      min-width: 28px;
+      text-align: center;
     }
-    .comment-item .ci-text {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.45;
+    .fb-unit {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      text-align: center;
     }
     .no-data {
       padding: 20px;
@@ -422,37 +397,6 @@
       font-size: 13px;
       color: var(--text-muted);
     }
-
-    /* ---- Action buttons ---- */
-    .actions-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    .btn-action {
-      flex: 1;
-      padding: 11px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      font-family: inherit;
-      -webkit-tap-highlight-color: transparent;
-      transition: all 0.15s;
-    }
-    .btn-action.primary {
-      background: var(--infuze);
-      color: #fff;
-      border: none;
-    }
-    .btn-action.primary:hover { background: var(--infuze-dark); }
-    .btn-action.secondary {
-      background: var(--card-bg);
-      color: var(--text-secondary);
-      border: 1.5px solid var(--border);
-    }
-    .btn-action.secondary:hover { border-color: var(--text-muted); }
 
     /* ---- Loading state ---- */
     .loading-state {
@@ -612,26 +556,13 @@
         </div>
       </div>
 
-      <!-- Impressions summary -->
-      <div class="impressions-section animate-in" style="animation-delay: 0.5s;" id="impressions-section">
-        <div class="impressions-header">Quick Impressions</div>
-        <div class="impressions-body" id="impressions-body"></div>
-      </div>
-
-      <!-- Comments -->
-      <div class="comments-section animate-in" style="animation-delay: 0.6s;" id="comments-section">
-        <div class="comments-header">
-          <span class="ch-title">Comments</span>
-          <span class="ch-count" id="comments-count"></span>
+      <!-- Poster Feedback Summary -->
+      <div class="feedback-section animate-in" style="animation-delay: 0.5s;" id="feedback-section">
+        <div class="feedback-header">
+          <span class="fh-title">Poster Feedback</span>
+          <span class="fh-count" id="feedback-count"></span>
         </div>
-        <div class="comments-body" id="comments-body"></div>
-      </div>
-
-      <!-- Actions -->
-      <div class="actions-row animate-in" style="animation-delay: 0.7s;">
-        <button class="btn-action primary" onclick="exportCSV('Votes')">Export Votes</button>
-        <button class="btn-action primary" onclick="exportCSV('Feedback')">Export Feedback</button>
-        <button class="btn-action secondary" onclick="loadResults()">Refresh</button>
+        <div class="feedback-body" id="feedback-body"></div>
       </div>
     </div>
   </div>
@@ -755,7 +686,6 @@
       postersData.xcarcity.forEach(p => { xcarcityCounts[`${p.presenter} — ${p.title}`] = 0; });
 
       let infuzeTotal = 0, xcarcityTotal = 0;
-      const impressionCounts = {};
 
       votesData.forEach(v => {
         if (v.infuzeVote && infuzeCounts.hasOwnProperty(v.infuzeVote)) {
@@ -766,13 +696,6 @@
           xcarcityCounts[v.xcarcityVote]++;
           xcarcityTotal++;
         }
-        [v.infuzeImpressions, v.xcarcityImpressions].forEach(str => {
-          if (str) {
-            str.split(',').map(s => s.trim()).filter(Boolean).forEach(imp => {
-              impressionCounts[imp] = (impressionCounts[imp] || 0) + 1;
-            });
-          }
-        });
       });
 
       document.getElementById('infuze-voters').textContent = infuzeTotal;
@@ -780,8 +703,7 @@
 
       renderProjectResults('infuze-winner', 'infuze-bars', infuzeCounts, 'infuze');
       renderProjectResults('xcarcity-winner', 'xcarcity-bars', xcarcityCounts, 'xcarcity');
-      renderImpressions(impressionCounts);
-      renderComments();
+      renderFeedbackSummary();
 
       requestAnimationFrame(() => {
         document.querySelectorAll('.bar-fill').forEach(bar => {
@@ -845,81 +767,57 @@
       }).join('');
     }
 
-    function renderImpressions(counts) {
-      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-      if (sorted.length === 0) {
-        document.getElementById('impressions-section').style.display = 'none';
-        return;
-      }
-      document.getElementById('impressions-section').style.display = '';
-      document.getElementById('impressions-body').innerHTML = sorted.map(([label, count]) => `
-        <div class="impression-pill">
-          <span>${escapeHtml(label)}</span>
-          <span class="ip-count">${count}</span>
-        </div>
-      `).join('');
-    }
+    function renderFeedbackSummary() {
+      const section = document.getElementById('feedback-section');
+      const body = document.getElementById('feedback-body');
+      const countEl = document.getElementById('feedback-count');
 
-    function renderComments() {
-      const comments = votesData
-        .filter(v => (v.overallComment && v.overallComment.trim()) || (v.infuzeComment && v.infuzeComment.trim()) || (v.xcarcityComment && v.xcarcityComment.trim()))
-        .map(v => {
-          const texts = [v.overallComment, v.infuzeComment, v.xcarcityComment]
-            .filter(Boolean)
-            .map(s => s.trim())
-            .filter(Boolean);
-          return {
-            time: new Date(v.timestamp).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
-            name: v.voterName || 'Anonymous',
-            text: texts.join(' · ')
-          };
-        })
-        .filter(c => c.text);
-
-      document.getElementById('comments-count').textContent = `${comments.length} comment${comments.length !== 1 ? 's' : ''}`;
-
-      if (comments.length === 0) {
-        document.getElementById('comments-body').innerHTML = '<div class="no-data">No comments yet.</div>';
+      if (!feedbackData || feedbackData.length === 0) {
+        countEl.textContent = '';
+        body.innerHTML = '<div class="no-data">No feedback yet.</div>';
         return;
       }
 
-      document.getElementById('comments-body').innerHTML = comments.map(c => `
-        <div class="comment-item">
-          <div class="ci-meta">
-            <span class="ci-name">${escapeHtml(c.name)}</span>
-            <span>${c.time}</span>
-          </div>
-          <div class="ci-text">${escapeHtml(c.text)}</div>
-        </div>
-      `).join('');
-    }
+      countEl.textContent = `${feedbackData.length} response${feedbackData.length !== 1 ? 's' : ''}`;
 
-    function exportCSV(sheetName) {
-      const data = sheetName === 'Votes' ? votesData : feedbackData;
-      if (!data || data.length === 0) {
-        alert(`No ${sheetName.toLowerCase()} data to export.`);
-        return;
-      }
+      const byPoster = {};
+      feedbackData.forEach(fb => {
+        const key = fb.poster || fb.posterId || 'Unknown';
+        if (!byPoster[key]) {
+          byPoster[key] = { count: 0, project: fb.project || '', impressions: [] };
+        }
+        byPoster[key].count++;
+        if (fb.impressions) {
+          fb.impressions.split(',').map(s => s.trim()).filter(Boolean).forEach(imp => {
+            byPoster[key].impressions.push(imp);
+          });
+        }
+      });
 
-      const headers = Object.keys(data[0]);
-      const csvRows = [
-        headers.join(','),
-        ...data.map(row =>
-          headers.map(h => {
-            const val = String(row[h] || '');
-            return val.includes(',') || val.includes('"') || val.includes('\n')
-              ? `"${val.replace(/"/g, '""')}"` : val;
-          }).join(',')
-        )
-      ];
+      const sorted = Object.entries(byPoster).sort((a, b) => b[1].count - a[1].count);
 
-      const blob = new Blob([csvRows.join('\n')], { type: 'text/csv' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `poster-${sheetName.toLowerCase()}-${new Date().toISOString().slice(0, 10)}.csv`;
-      a.click();
-      URL.revokeObjectURL(url);
+      body.innerHTML = sorted.map(([poster, data]) => {
+        const parts = poster.split(' — ');
+        const presenter = parts[0];
+        const proj = (data.project || '').toLowerCase();
+
+        const impCounts = {};
+        data.impressions.forEach(imp => { impCounts[imp] = (impCounts[imp] || 0) + 1; });
+        const topImps = Object.entries(impCounts).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k]) => k);
+
+        return `
+          <div class="fb-row">
+            <span class="fb-project ${proj === 'infuze' ? 'infuze' : 'xcarcity'}">${escapeHtml(data.project || '?')}</span>
+            <div class="fb-info">
+              <div class="fb-presenter">${escapeHtml(presenter)}</div>
+              ${topImps.length > 0 ? `<div class="fb-impressions">${topImps.map(i => escapeHtml(i)).join(' · ')}</div>` : ''}
+            </div>
+            <div>
+              <div class="fb-count">${data.count}</div>
+              <div class="fb-unit">${data.count === 1 ? 'review' : 'reviews'}</div>
+            </div>
+          </div>`;
+      }).join('');
     }
 
   </script>
