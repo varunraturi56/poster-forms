@@ -96,7 +96,7 @@
     .container {
       max-width: 480px;
       margin: 0 auto;
-      padding: 24px 16px 32px;
+      padding: 24px 16px 100px;
     }
 
     /* ---- Fixed Footer ---- */
@@ -677,6 +677,20 @@
       height: auto;
       display: block;
       border-radius: 8px;
+    }
+
+    @media (max-width: 359px) {
+      .header-band .school-title { font-size: 15px; }
+      .header-band .page-title { font-size: 20px; }
+      .container { padding: 20px 12px 100px; }
+      .project-pick { gap: 8px; }
+      .project-pick-btn { padding: 20px 10px; min-height: 120px; }
+      .step-heading { font-size: 16px; }
+      .poster-item .p-title { font-size: 12px; }
+      .poster-item .p-thumb { width: 38px; height: 48px; }
+      .chips { gap: 6px; }
+      .chip { padding: 8px 8px; font-size: 11px; }
+      .footer-band img { height: 20px; }
     }
   </style>
 </head>
