@@ -63,10 +63,33 @@ function doPost(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
 
-    sheet.appendRow(row);
+    var existingRow = -1;
+    var allData = sheet.getDataRange().getValues();
+
+    if (sheetName === 'Votes' && data.deviceId) {
+      for (var i = 1; i < allData.length; i++) {
+        if (allData[i][1] === data.deviceId) {
+          existingRow = i + 1;
+          break;
+        }
+      }
+    } else if (sheetName === 'Feedback' && data.deviceId && data.posterId) {
+      for (var i = 1; i < allData.length; i++) {
+        if (allData[i][1] === data.deviceId && allData[i][2] === data.posterId) {
+          existingRow = i + 1;
+          break;
+        }
+      }
+    }
+
+    if (existingRow > 0) {
+      sheet.getRange(existingRow, 1, 1, row.length).setValues([row]);
+    } else {
+      sheet.appendRow(row);
+    }
 
     return ContentService
-      .createTextOutput(JSON.stringify({ status: 'ok' }))
+      .createTextOutput(JSON.stringify({ status: 'ok', updated: existingRow > 0 }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService
