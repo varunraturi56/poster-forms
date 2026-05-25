@@ -526,7 +526,26 @@
   </div>
   <div class="header-accent"></div>
 
-  <div class="container" id="app">
+  <!-- Password Gate -->
+  <div id="auth-gate" style="display:flex; align-items:center; justify-content:center; min-height:60vh; padding:20px;">
+    <div style="text-align:center; max-width:340px; width:100%;">
+      <div style="font-size:40px; margin-bottom:16px;">&#128274;</div>
+      <h2 style="font-size:20px; font-weight:600; margin-bottom:6px;">Organisers Only</h2>
+      <p style="font-size:14px; color:var(--text-secondary); margin-bottom:24px;">Enter the PIN to view live results.</p>
+      <input type="password" id="pin-input" placeholder="Enter PIN" maxlength="10"
+        style="width:100%; padding:14px 16px; font-size:16px; font-family:inherit; border:2px solid var(--border); border-radius:var(--radius); outline:none; text-align:center; letter-spacing:4px; transition:border-color 0.2s;"
+        onfocus="this.style.borderColor='var(--infuze)'"
+        onblur="this.style.borderColor='var(--border)'"
+        onkeydown="if(event.key==='Enter')checkPin()">
+      <button onclick="checkPin()"
+        style="width:100%; margin-top:12px; padding:14px; font-size:15px; font-weight:600; font-family:inherit; color:#fff; background:var(--infuze); border:none; border-radius:var(--radius); cursor:pointer; transition:background 0.2s;"
+        onmouseover="this.style.background='var(--infuze-dark)'"
+        onmouseout="this.style.background='var(--infuze)'">Unlock Results</button>
+      <p id="pin-error" style="color:#e3161a; font-size:13px; margin-top:12px; display:none;">Incorrect PIN. Try again.</p>
+    </div>
+  </div>
+
+  <div class="container" id="app" style="display:none;">
     <!-- Loading state -->
     <div id="loading-view">
       <div class="loading-state">
@@ -623,11 +642,40 @@
 
   <script>
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1YrgzyPDu6Jv7UvVtVDfenMPSkhnrAiBl6_AtcOq9xElItNSk3VcrzQ-0P0nhkd4VEw/exec';
+    const RESULTS_PIN = 'infuze2026';
 
     let postersData = null;
     let votesData = [];
     let feedbackData = [];
     let refreshTimer = null;
+
+    function checkPin() {
+      const input = document.getElementById('pin-input');
+      const error = document.getElementById('pin-error');
+      if (input.value === RESULTS_PIN) {
+        sessionStorage.setItem('results_auth', '1');
+        unlockResults();
+      } else {
+        error.style.display = 'block';
+        input.style.borderColor = '#e3161a';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    function unlockResults() {
+      document.getElementById('auth-gate').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      init();
+    }
+
+    (function() {
+      if (sessionStorage.getItem('results_auth') === '1') {
+        unlockResults();
+      } else {
+        document.getElementById('pin-input').focus();
+      }
+    })();
 
     function escapeHtml(s) {
       const div = document.createElement('div');
@@ -862,7 +910,6 @@
       URL.revokeObjectURL(url);
     }
 
-    init();
   </script>
 </body>
 </html>
